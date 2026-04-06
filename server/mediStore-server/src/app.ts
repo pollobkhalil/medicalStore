@@ -1,6 +1,9 @@
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import globalErrorHandler from './middlewares/globalErrorHandler';
+import notFound from './middlewares/notFound';
+
 
 const app: Application = express();
 
@@ -18,6 +21,12 @@ app.get('/', (req: Request, res: Response) => {
 
 
 // Global error handler
+app.use(globalErrorHandler);
+
+
+// Not found route handler
+app.use(notFound);
+
 
 
 
