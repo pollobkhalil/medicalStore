@@ -18,7 +18,7 @@ const handlePrismaError = (
     },
   ];
 
-  // P2002: Unique constraint failed (e.g., trying to register with an existing email)
+  // Unique constraint failed (e.g., trying to register with an existing email)
   if (err.code === 'P2002') {
     statusCode = 400;
     message = 'Duplicate Key Error';
@@ -31,7 +31,7 @@ const handlePrismaError = (
     ];
   } 
   
-  // P2025: Record to update or delete not found (e.g., trying to delete a non-existent medicine)
+  // Record to update or delete not found (e.g., trying to delete a non-existent medicine)
   else if (err.code === 'P2025') {
     statusCode = 404;
     message = 'Record not found';
